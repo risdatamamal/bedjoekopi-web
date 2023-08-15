@@ -58,7 +58,7 @@ $(function() {
     animateHistoryBrowsing: true,
     linkSelector: '.sb-navigation a:not([data-no-swup]) , a:not([data-no-swup])',
   };
-  const swup = new Swup(options);
+  // var swup = new Swup(options);
   /***************************
 
   isotope

@@ -1,13 +1,27 @@
-/* eslint-disable react/jsx-key */
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+import React from "react";
 
-function Topbar(useRouter) {
+const Topbar = () => {
+  const pathname = usePathname();
+
   const navs = [
     { text: "Home", href: "/" },
-    { text: "About", href: "/about" },
-    { text: "Portofolio", href: "/portofolio" },
+    {
+      text: "About",
+      href: "/about",
+      subNav: [
+        { text: "FAQ", href: "/faq" },
+        { text: "Reviews", href: "/reviews" },
+      ],
+    },
+    // Menu-3 (Lazy Load)
+    { text: "Menu", href: "/menu" },
+    // Blog-3 (Lazy Load)
+    { text: "Blog", href: "/blog" },
     { text: "Contact", href: "/contact" },
   ];
 
@@ -17,129 +31,44 @@ function Topbar(useRouter) {
       <div className="sb-top-bar-bg"></div>
       <div className="container">
         <div className="sb-top-bar">
-          <a href="home-2.html" className="sb-logo-frame">
-            {/* <!-- logo img --> */}
+          <a href="/" className="sb-logo-frame">
+            {/* logo img */}
             <Image
               src="img/ui/logo.svg"
-              alt="Starbelly"
+              alt="Bedjoekopi"
               width={100}
               height={50}
             />
           </a>
-          {/* <!-- menu --> */}
+          {/* menu */}
           <div className="sb-right-side">
             <nav id="sb-dynamic-menu" className="sb-menu-transition">
               <ul className="sb-navigation">
-                <li className="sb-active sb-has-children">
-                  <a href="home-1.html">Home</a>
-                  <ul>
-                    <li>
-                      <a href="home-1.html">Type 1</a>
+                {navs.map((nav) => {
+                  const isActive = pathname === nav.href;
+
+                  return (
+                    <li
+                      className={`sb-has-children ${
+                        isActive ? "sb-active" : ""
+                      }`}
+                      key={nav.text}
+                    >
+                      <Link href={nav.href}>{nav.text}</Link>
+                      {nav.subNav && nav.subNav.length > 0 && (
+                        <ul>
+                          {nav.subNav.map((subNavItem) => (
+                            <li key={subNavItem.text}>
+                              <Link href={subNavItem.href}>
+                                {subNavItem.text}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </li>
-                    <li>
-                      <a href="home-2.html">Type 2</a>
-                    </li>
-                  </ul>
-                </li>
-                <li className="sb-has-children">
-                  <a href="about-1.html">Pages</a>
-                  <ul>
-                    <li>
-                      <a href="about-1.html">About 1</a>
-                    </li>
-                    <li>
-                      <a href="about-2.html">About 2</a>
-                    </li>
-                    <li>
-                      <a href="blog-1.html">Blog style 1</a>
-                    </li>
-                    <li>
-                      <a href="blog-2.html">Blog style 2</a>
-                    </li>
-                    <li>
-                      <a href="blog-3.html">Blog style 3</a>
-                    </li>
-                    <li>
-                      <a href="publication-1.html">Publication 1</a>
-                    </li>
-                    <li>
-                      <a href="publication-2.html">Publication 2</a>
-                    </li>
-                    <li>
-                      <a href="publication-3.html">Publication 3</a>
-                    </li>
-                    <li>
-                      <a href="gallery.html">Gallery</a>
-                    </li>
-                    <li>
-                      <a href="gallery-2.html">Gallery 2</a>
-                    </li>
-                    <li>
-                      <a href="reviews.html">Reviews</a>
-                    </li>
-                    <li>
-                      <a href="reservation.html">Reservation</a>
-                    </li>
-                    <li>
-                      <a href="faq.html">FAQ</a>
-                    </li>
-                    <li>
-                      <a href="404.html">404</a>
-                    </li>
-                  </ul>
-                </li>
-                <li className="sb-has-children">
-                  <a href="menu-1.html">Menu</a>
-                  <ul>
-                    <li>
-                      <a href="menu-1.html">Menu style 1</a>
-                    </li>
-                    <li>
-                      <a href="menu-2.html">Menu style 2</a>
-                    </li>
-                    <li>
-                      <a href="menu-3.html">Menu style 3</a>
-                    </li>
-                    <li>
-                      <a href="menu-4.html">Menu style 4</a>
-                    </li>
-                    <li>
-                      <a href="menu-5.html">Menu style 5</a>
-                    </li>
-                    <li>
-                      <a href="menu-6.html">Menu style 6</a>
-                    </li>
-                  </ul>
-                </li>
-                <li className="sb-has-children">
-                  <a href="shop-1.html">Shop</a>
-                  <ul>
-                    <li>
-                      <a href="shop-1.html">Shop style 1</a>
-                    </li>
-                    <li>
-                      <a href="shop-2.html">Shop style 2</a>
-                    </li>
-                    <li>
-                      <a href="shop-list-1.html">Shop list 1</a>
-                    </li>
-                    <li>
-                      <a href="shop-list-2.html">Shop list 2</a>
-                    </li>
-                    <li>
-                      <a href="product.html">Product page</a>
-                    </li>
-                    <li>
-                      <a href="cart.html">Cart</a>
-                    </li>
-                    <li>
-                      <a href="checkout.html">Checkout</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="contact.html">Contact</a>
-                </li>
+                  );
+                })}
               </ul>
             </nav>
             <div className="sb-buttons-frame">
@@ -168,7 +97,7 @@ function Topbar(useRouter) {
           </div>
         </div>
       </div>
-      {/* <!-- info bar --> */}
+      {/* info bar */}
       <div className="sb-info-bar">
         <div className="sb-infobar-content">
           <div className="sb-ib-title-frame sb-mb-30">
@@ -352,8 +281,8 @@ function Topbar(useRouter) {
           </ul>
         </div>
       </div>
-      {/* <!-- info bar end --> */}
-      {/* <!-- minicart --> */}
+      {/* info bar end */}
+      {/* minicart */}
       <div className="sb-minicart">
         <div className="sb-minicart-content">
           <div className="sb-ib-title-frame sb-mb-30">
@@ -469,10 +398,10 @@ function Topbar(useRouter) {
           {/* <!-- button end --> */}
         </div>
       </div>
-      {/* <!-- minicart end --> */}
+      {/* minicart end */}
     </div>
     // top bar end
   );
-}
+};
 
 export default Topbar;
