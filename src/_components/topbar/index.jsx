@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React from "react";
@@ -45,7 +44,10 @@ const Topbar = () => {
             <nav id="sb-dynamic-menu" className="sb-menu-transition">
               <ul className="sb-navigation">
                 {navs.map((nav) => {
-                  const isActive = pathname === nav.href;
+                  const isActive =
+                    pathname === nav.href ||
+                    (nav.subNav &&
+                      nav.subNav.some((subNav) => pathname === subNav.href));
 
                   return (
                     <li
@@ -54,14 +56,12 @@ const Topbar = () => {
                       }`}
                       key={nav.text}
                     >
-                      <Link href={nav.href}>{nav.text}</Link>
+                      <a href={nav.href}>{nav.text}</a>
                       {nav.subNav && nav.subNav.length > 0 && (
                         <ul>
                           {nav.subNav.map((subNavItem) => (
                             <li key={subNavItem.text}>
-                              <Link href={subNavItem.href}>
-                                {subNavItem.text}
-                              </Link>
+                              <a href={subNavItem.href}>{subNavItem.text}</a>
                             </li>
                           ))}
                         </ul>

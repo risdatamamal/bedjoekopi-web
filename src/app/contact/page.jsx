@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import { Footer } from "@/app/_components";
+import { Footer } from "@/_components";
 
 export const metadata = {
   title: "Contact - Bedjoekopi",
@@ -21,7 +21,7 @@ const Contact = () => {
                 <div className="sb-main-title">
                   <span className="sb-suptitle sb-mb-30">Contact</span>
                   <h1 className="sb-mb-30">
-                    Get in <span>Touch with Starbelly</span>
+                    Get in <span>Touch with Bedjoekopi</span>
                   </h1>
                   <p className="sb-text sb-text-lg sb-mb-30">
                     Consectetur numquam poro nemo veniam
@@ -30,10 +30,10 @@ const Contact = () => {
                   </p>
                   <ul className="sb-breadcrumbs">
                     <li>
-                      <a href="home-1.html">Home</a>
+                      <a href="/">Home</a>
                     </li>
                     <li>
-                      <a href="menu-1.html">Contact</a>
+                      <a href="/contact">Contact</a>
                     </li>
                   </ul>
                 </div>
@@ -145,7 +145,7 @@ const Contact = () => {
                 <div className="sb-number">03</div>
                 <div className="sb-feature-text">
                   <h3 className="sb-mb-15">Write</h3>
-                  <p className="sb-text">starbelly@mail.com</p>
+                  <p className="sb-text">bedjoekopi@mail.com</p>
                 </div>
               </div>
             </div>

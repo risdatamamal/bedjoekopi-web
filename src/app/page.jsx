@@ -1,8 +1,9 @@
 import Image from "next/image";
 import React from "react";
 import {
-  Footer
-} from "@/app/_components";
+  Footer,
+  DownloadMobileApps,
+} from "@/_components";
 
 export const metadata = {
   title: "Home - Bedjoekopi",
@@ -36,7 +37,7 @@ const Home = () => {
                     eligendi rem adipisci quo modi.
                   </p>
                   {/* button */}
-                  <a href="menu-1.html" className="sb-btn">
+                  <a href="/menu" className="sb-btn">
                     <span className="sb-icon">
                       <Image
                         src="img/ui/icons/menu.svg"
@@ -49,10 +50,7 @@ const Home = () => {
                   </a>
                   {/* button end */}
                   {/* button */}
-                  <a
-                    href="about-1.html"
-                    className="sb-btn sb-btn-2 sb-btn-gray"
-                  >
+                  <a href="/about" className="sb-btn sb-btn-2 sb-btn-gray">
                     <span className="sb-icon">
                       <Image
                         src="img/ui/icons/arrow.svg"
@@ -774,87 +772,11 @@ const Home = () => {
       {/* team end */}
 
       {/* call to action */}
-      <section className="sb-call-to-action">
-        <div className="sb-bg-3"></div>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-6 align-self-center">
-              <div className="sb-cta-text">
-                <h2 className="sb-h1 sb-mb-30">Download our mobile app.</h2>
-                <p className="sb-text sb-mb-30">
-                  Consectetur numquam poro nemo veniam
-                  <br />
-                  eligendi rem adipisci quo modi.
-                </p>
-                <a
-                  href="#."
-                  target="_blank"
-                  data-no-swup
-                  className="sb-download-btn"
-                >
-                  <Image
-                    src="img/buttons/1.svg"
-                    alt="img"
-                    width={100}
-                    height={50}
-                  />
-                </a>
-                <a
-                  href="#."
-                  target="_blank"
-                  data-no-swup
-                  className="sb-download-btn"
-                >
-                  <Image
-                    src="img/buttons/2.svg"
-                    alt="img"
-                    width={100}
-                    height={50}
-                  />
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-6">
-              <div className="sb-illustration-3">
-                <img
-                  src="img/illustrations/phones.png"
-                  alt="phones"
-                  className="sb-phones"
-                />
-                <div className="sb-cirkle-1"></div>
-                <div className="sb-cirkle-2"></div>
-                <div className="sb-cirkle-3"></div>
-                <div className="sb-cirkle-4"></div>
-                <Image
-                  src="img/illustrations/1.svg"
-                  alt="phones"
-                  className="sb-pik-1"
-                  width={100}
-                  height={50}
-                />
-                <Image
-                  src="img/illustrations/2.svg"
-                  alt="phones"
-                  className="sb-pik-2"
-                  width={100}
-                  height={50}
-                />
-                <Image
-                  src="img/illustrations/3.svg"
-                  alt="phones"
-                  className="sb-pik-3"
-                  width={100}
-                  height={50}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <DownloadMobileApps/>
       {/* call to action end */}
 
       {/* footer */}
-      <Footer />
+      <Footer/>
       {/* footer end */}
     </div>
     // dynamic content end

@@ -1,6 +1,5 @@
-import Image from "next/image";
 import React from "react";
-import { Footer } from "@/app/_components";
+import { Footer, DownloadMobileApps } from "@/_components";
 
 export const metadata = {
   title: "About - Bedjoekopi",
@@ -22,10 +21,10 @@ const About = () => {
                   <h1 className="sb-h2">About us</h1>
                   <ul className="sb-breadcrumbs">
                     <li>
-                      <a href="home-1.html">Home</a>
+                      <a href="/">Home</a>
                     </li>
                     <li>
-                      <a href="#.">About us</a>
+                      <a href="/about">About us</a>
                     </li>
                   </ul>
                 </div>
@@ -51,7 +50,7 @@ const About = () => {
                     src="img/gallery/2.jpg"
                     alt="interior"
                     className="sb-interior"
-                    style={{ objectPosition: 'center' }}
+                    style={{ objectPosition: "center" }}
                   />
                 </div>
                 <div className="sb-square"></div>
@@ -251,7 +250,7 @@ const About = () => {
             </div>
             <div className="sb-right sb-mb-30">
               {/* button */}
-              <a href="menu-1.html" className="sb-btn sb-m-0">
+              <a href="/menu" className="sb-btn sb-m-0">
                 <span className="sb-icon">
                   <img src="img/ui/icons/menu.svg" alt="icon" />
                 </span>
@@ -424,7 +423,7 @@ const About = () => {
               </div>
               {/* slider navigation end */}
               {/* button */}
-              <a href="reviews.html" className="sb-btn">
+              <a href="/reviews" className="sb-btn">
                 <span className="sb-icon">
                   <img src="img/ui/icons/dialog.svg" alt="icon" />
                 </span>
@@ -598,67 +597,11 @@ const About = () => {
       {/* revievs end */}
 
       {/* call to action */}
-      <section className="sb-call-to-action">
-        <div className="sb-bg-3"></div>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-6 align-self-center">
-              <div className="sb-cta-text">
-                <h2 className="sb-h1 sb-mb-15">Free delivery service.</h2>
-                <p className="sb-text sb-mb-30">
-                  *Consectetur numquam poro nemo veniam
-                  <br />
-                  eligendi rem adipisci quo modi.
-                </p>
-                {/* button */}
-                <a href="shop-1.html" className="sb-btn">
-                  <span className="sb-icon">
-                    <img src="img/ui/icons/cart.svg" alt="icon" />
-                  </span>
-                  <span>Order delivery</span>
-                </a>
-                {/* button end */}
-                {/* button */}
-                <a href="menu-1.html" className="sb-btn sb-btn-2 sb-btn-gray">
-                  <span className="sb-icon">
-                    <img src="img/ui/icons/menu.svg" alt="icon" />
-                  </span>
-                  <span>Menu</span>
-                </a>
-                {/* button end */}
-              </div>
-            </div>
-            <div className="col-lg-6">
-              <div className="sb-illustration-8">
-                <img
-                  src="img/illustrations/delivery.png"
-                  alt="reserved"
-                  className="sb-reserved"
-                />
-                <div className="sb-cirkle-1"></div>
-                <div className="sb-cirkle-2"></div>
-                <div className="sb-cirkle-3"></div>
-                <div className="sb-cirkle-4"></div>
-                <div className="sb-cirkle-5"></div>
-                <img
-                  src="img/illustrations/2.svg"
-                  alt="icon"
-                  className="sb-pik-2"
-                />
-                <img
-                  src="img/illustrations/3.svg"
-                  alt="icon"
-                  className="sb-pik-3"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <DownloadMobileApps/>
       {/* call to action end */}
 
       {/* footer */}
-      <Footer />
+      <Footer/>
       {/* footer end */}
     </div>
     // dynamic content end
